@@ -4,6 +4,7 @@ import com.lemonacademy.candlelanding.dto.LeadRequestDto;
 import com.lemonacademy.candlelanding.dto.LeadResponseDto;
 import com.lemonacademy.candlelanding.model.Lead;
 import com.lemonacademy.candlelanding.repository.LeadRepository;
+import com.lemonacademy.candlelanding.service.EmailService;
 import com.lemonacademy.candlelanding.service.LeadService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,11 @@ import java.time.LocalDateTime;
 public class LeadServiceImpl implements LeadService {
 
     private final LeadRepository leadRepository;
+    private final EmailService emailService;
 
-    public LeadServiceImpl(LeadRepository leadRepository){
+    public LeadServiceImpl(LeadRepository leadRepository, EmailService emailService){
         this.leadRepository=leadRepository;
+        this.emailService= emailService;
     }
 
     @Override
@@ -33,11 +36,14 @@ public class LeadServiceImpl implements LeadService {
         Lead savedLead =
                 leadRepository.save(lead);
 
+        emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
+
         return LeadResponseDto.builder()
                 .id(savedLead.getId())
                 .name(savedLead.getName())
                 .email(savedLead.getEmail())
                 .phone(savedLead.getPhone())
+                .createdAt(savedLead.getCreatedAt())
                 .build();
     }
 }
