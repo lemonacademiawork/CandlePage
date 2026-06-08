@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# === Frontend (Node/Vite) ===
 # Logs
 logs
 *.log
@@ -13,17 +13,7 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-=======
+# === Backend (Java/Spring Boot) ===
 target/
 !.mvn/wrapper/maven-wrapper.jar
 /mvnw
@@ -55,14 +45,16 @@ out/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
-/dist/
 /nbproject/maven-impl.xml
-/build/
 
-### VS Code ###
+# === Editor & OS ===
 .vscode/
-
-### Operating System Files ###
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 Thumbs.db
 ehthumbs.db
 Desktop.ini
@@ -70,4 +62,6 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
->>>>>>> b2357f6832841f242b9831bfc58b821e2eb48050
+
+# === Environment Files ===
+.env
