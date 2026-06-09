@@ -35,7 +35,9 @@ public class LeadServiceImpl implements LeadService {
 
         Lead savedLead = leadRepository.save(lead);
         System.out.println("Mongo save took:"+ (System.currentTimeMillis() -start)+ "ms");
-        //emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
+
+
+        emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
 
         return LeadResponseDto.builder()
                 .id(savedLead.getId())
