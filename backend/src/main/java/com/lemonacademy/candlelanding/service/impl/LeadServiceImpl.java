@@ -33,7 +33,7 @@ public class LeadServiceImpl implements LeadService {
 
         Lead savedLead = leadRepository.save(lead);
 
-        emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
+        //emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
 
         return LeadResponseDto.builder()
                 .id(savedLead.getId())
