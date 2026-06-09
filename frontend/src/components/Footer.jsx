@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-on-surface mb-6">Connect With Us</h4>
             <ul className="space-y-4 text-sm text-on-surface-variant">
-              <li><a className="hover:text-primary transition-colors" href="https://www.instagram.com/lemon_academia___?igsh=bHpoN2dlOHU4eGdq">Instagram</a></li>
+              <li><a className="hover:text-primary transition-colors" href="https://www.instagram.com/lemon_academia___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
               <li><a className="hover:text-primary transition-colors" href="https://www.youtube.com/@Lemonacademia_in">Youtube</a></li>
               <li><a className="hover:text-primary transition-colors" href="https://www.facebook.com/share/18uE5qyVBg/">Facebook</a></li>
             </ul>
