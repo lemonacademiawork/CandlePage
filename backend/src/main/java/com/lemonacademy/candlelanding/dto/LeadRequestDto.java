@@ -19,8 +19,7 @@ public class LeadRequestDto {
     @Pattern(regexp = "^[0-9]{10}$", message = "Phone must be a valid 10-digit number")
     private String phone;
 
-    @NotBlank(message = "Email is required")
-    @Email(message = "Email must be valid")
+   
     private String email;
 
     private String source;
