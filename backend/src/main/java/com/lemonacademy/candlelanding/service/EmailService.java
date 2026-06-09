@@ -27,8 +27,10 @@ public class EmailService {
             );
 
             mailSender.send(message);
+            System.out.println("Lead confirmation email sent successfully  to: " + to);
         } catch (Exception e) {
             System.err.println("Failed to send lead confirmation email to " + to + ": " + e.getMessage());
+            e.printStackTrace();
         }
     }
 

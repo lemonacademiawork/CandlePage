@@ -31,10 +31,10 @@ public class LeadServiceImpl implements LeadService {
                 .createdAt(LocalDateTime.now())
                 .build();
 
-        long start = System.currentTimeMillis();
+        
 
         Lead savedLead = leadRepository.save(lead);
-        System.out.println("Mongo save took:"+ (System.currentTimeMillis() -start)+ "ms");
+        
 
 
         emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
