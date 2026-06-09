@@ -37,7 +37,7 @@ public class LeadServiceImpl implements LeadService {
         
 
 
-        emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
+        //emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
 
         return LeadResponseDto.builder()
                 .id(savedLead.getId())

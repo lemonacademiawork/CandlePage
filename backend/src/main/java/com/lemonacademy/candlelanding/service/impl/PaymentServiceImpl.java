@@ -83,11 +83,11 @@ public class PaymentServiceImpl implements PaymentService {
         paymentRepository.save(payment);
 
         // Send payment confirmation email
-        emailService.sendPaymentConfirmationEmail(
-                payment.getEmail(), 
-                payment.getName(), 
-                payment.getOrderId(), 
-                payment.getAmount()
-        );
+        // emailService.sendPaymentConfirmationEmail(
+        //         payment.getEmail(), 
+        //         payment.getName(), 
+        //         payment.getOrderId(), 
+        //         payment.getAmount()
+        // );
     }
 }
