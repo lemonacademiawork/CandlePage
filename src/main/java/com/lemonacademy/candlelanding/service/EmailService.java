@@ -14,18 +14,42 @@ public class EmailService {
     }
 
     public void sendLeadConfirmationEmail(String to, String name) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
 
-        SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(to);
+            message.setSubject("Thank You for Your Interest");
 
-        message.setTo(to);
-        message.setSubject("Thank You for Your Interest");
+            message.setText(
+                    "Hi " + name +
+                            ",\n\nThank you for your interest in our Candle Making Masterclass." +
+                            "\nOur team will contact you shortly.\n\nRegards,\nLemon Academy"
+            );
 
-        message.setText(
-                "Hi " + name +
-                        ",\n\nThank you for your interest in our Candle Making Masterclass." +
-                        "\nOur team will contact you shortly.\n\nRegards,\nLemon Academy"
-        );
+            mailSender.send(message);
+        } catch (Exception e) {
+            System.err.println("Failed to send lead confirmation email to " + to + ": " + e.getMessage());
+        }
+    }
 
-        mailSender.send(message);
+    public void sendPaymentConfirmationEmail(String to, String name, String orderId, double amount) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+
+            message.setTo(to);
+            message.setSubject("Enrollment Confirmed - Lemon Academy");
+
+            message.setText(
+                    "Hi " + name +
+                            ",\n\nYour payment of ₹" + amount + " for the Candle Making Course was successful!" +
+                            "\nOrder ID: " + orderId +
+                            "\n\nWelcome to Lemon Academy! Your course onboarding details and material lists will be shared with you shortly." +
+                            "\n\nRegards,\nLemon Academy"
+            );
+
+            mailSender.send(message);
+        } catch (Exception e) {
+            System.err.println("Failed to send payment confirmation email to " + to + ": " + e.getMessage());
+        }
     }
 }

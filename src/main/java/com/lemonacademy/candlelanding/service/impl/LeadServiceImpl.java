@@ -8,8 +8,10 @@ import com.lemonacademy.candlelanding.service.EmailService;
 import com.lemonacademy.candlelanding.service.LeadService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.client.RestTemplate;
+import java.util.Map;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 @Service
 public class LeadServiceImpl implements LeadService {
@@ -36,7 +38,7 @@ public class LeadServiceImpl implements LeadService {
         Lead savedLead =
                 leadRepository.save(lead);
 
-        emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
+        //emailService.sendLeadConfirmationEmail(savedLead.getEmail(), savedLead.getName());
 
         return LeadResponseDto.builder()
                 .id(savedLead.getId())
@@ -45,5 +47,18 @@ public class LeadServiceImpl implements LeadService {
                 .phone(savedLead.getPhone())
                 .createdAt(savedLead.getCreatedAt())
                 .build();
+
+         RestTemplate restTemplate = new RestTemplate();
+
+        Map<String, Object> requestBody = new HashMap<>();
+        requestBody.put("phone", savedLead.getPhone());
+        requestBody.put("name", savedLead.getName());
+        
+
+        restTemplate.postForObject(
+        "https://app.zoepact.in/webhook/whatsapp-workflow/234476.302199.298711.1781248905",
+        requestBody,
+        String.class
+);
     }
 }
