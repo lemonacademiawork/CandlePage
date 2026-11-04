@@ -23,6 +23,8 @@ public class CorsConfig {
                                 "http://localhost:3000",
                                 "https://lemonacademia.com",
                                 "https://www.lemonacademia.com",
+                                "https://candle.lemonacademia.com",
+                                "https://resin.lemonacademia.com",
                                 "https://lemonacademia.com/resinlandingpage/",
                                 "https://lemonacademia.com/candlelandingpage/"
                         )
