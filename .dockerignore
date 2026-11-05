@@ -1,0 +1,9 @@
+frontend/
+Candle/
+node_modules/
+target/
+.git/
+.gitignore
+.idea/
+*.iml
+

@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-
 @Configuration
 public class CorsConfig {
     @Bean
@@ -24,10 +23,7 @@ public class CorsConfig {
                                 "https://lemonacademia.com",
                                 "https://www.lemonacademia.com",
                                 "https://candle.lemonacademia.com",
-                                "https://resin.lemonacademia.com",
-                                "https://lemonacademia.com/resinlandingpage/",
-                                "https://lemonacademia.com/candlelandingpage/"
-                        )
+                                "https://resin.lemonacademia.com")
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }
