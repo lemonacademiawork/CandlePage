@@ -1,5 +1,7 @@
 package com.lemonacademy.candlelanding.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -9,11 +11,15 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
-    public EmailService(JavaMailSender mailSender) {
+    public EmailService(@Autowired(required = false) @Nullable JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
     public void sendLeadConfirmationEmail(String to, String name) {
+        if (mailSender == null) {
+            System.out.println("Mail sender not configured. Skipping email to: " + to);
+            return;
+        }
         try {
             SimpleMailMessage message = new SimpleMailMessage();
 
@@ -35,6 +41,10 @@ public class EmailService {
     }
 
     public void sendPaymentConfirmationEmail(String to, String name, String orderId, double amount) {
+        if (mailSender == null) {
+            System.out.println("Mail sender not configured. Skipping payment email to: " + to);
+            return;
+        }
         try {
             SimpleMailMessage message = new SimpleMailMessage();
 
