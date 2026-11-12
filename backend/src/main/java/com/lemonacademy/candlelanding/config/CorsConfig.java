@@ -20,6 +20,7 @@ public class CorsConfig {
                                 "http://localhost:5174",
                                 "http://localhost:5175",
                                 "http://localhost:3000",
+                                "https://hairserum.lemonacademia.com",
                                 "https://lemonacademia.com",
                                 "https://www.lemonacademia.com",
                                 "https://candle.lemonacademia.com",
